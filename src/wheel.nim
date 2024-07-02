@@ -55,6 +55,15 @@ proc addWheel() =
   var divider = document.createElementNS(SVG_NAMESPACE, "g")
   svg.appendChild(divider)
   var choices = getChoices()
+  if len(choices) > 0:
+    document.getElementById("spin").classList.remove("is-hidden")
+    document.getElementById("empty-hint").innerHTML = "Click on the button to see the decision!"
+  else:
+    document.getElementById("arrow").innerHTML = "&nbsp;"
+    document.getElementById("spin").classList.add("is-hidden")
+    document.getElementById("chosen").innerHTML = "&nbsp;"
+    document.getElementById("empty-hint").innerHTML = "Enter some choices for the wheel!"
+    document.getElementById("empty-hint").classList.remove("is-hidden")
   var slicePercent = 1 / len(choices)
   for i, choice in choices:
     var path = document.createElementNS(SVG_NAMESPACE, "path")
@@ -104,6 +113,7 @@ proc spin(ev: Event) =
       svg.removeEventListener("animationend", finish)
       document.getElementById("chosen").innerHTML = choice
       document.getElementById("spin").disabled = false
+      document.getElementById("spin").style.opacity = "1"
 
     svg.addEventListener("animationend", finish)
 
@@ -111,6 +121,9 @@ proc spin(ev: Event) =
   svg.classlist.remove("is-stopping")
   svg.classlist.add("is-spinning")
   document.getElementById("spin").disabled = true
+  document.getElementById("spin").style.opacity = "0"
+  document.getElementById("arrow").innerHTML = "↓"
+  document.getElementById("empty-hint").classList.add("is-hidden")
   svg.addEventListener("animationend", unSpin)
 
 
