@@ -13,26 +13,22 @@
 </head>
 
 <body>
-  <div class="container is-max-desktop">
+  <div class="container">
     <div class="hero">
       <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="title has-text-centered">
-            Nimdecision
-          </div>
-        </div>
+         <div class="title has-text-centered">Nimdecision</div>
       </div>
     </div>
     <div class="columns has-text-light">
       <div class="column">
-          <article class="notification has-background-success">
+        <article class="notification has-background-success">
+          <div class="content">
+            <p class="title">Choices</p>
             <div class="content">
-              <p class="title">Choices</p>
-              <div class="content">
-                <textarea class="textarea" placeholder="1 choice per line" name="choices" id="choices" rows="10"></textarea>
-              </div>
+              <textarea class="textarea" placeholder="1 choice per line" name="choices" id="choices" rows="10"></textarea>
             </div>
-          </article>
+          </div>
+        </article>
       </div>
       <div class="column">
         <article class="notification has-background-info">
@@ -40,7 +36,7 @@
             <div id="chosen" class="is-size-2 has-text-centered">&nbsp;</div>
             <div class="indicator" id="arrow">&nbsp;</div>
             <p class="subtitle is-5" id="empty-hint">Enter some choices for the wheel!</p>
-            <button id="spin" class="button is-large is-hidden" style="top: calc(250px + 1.5rem); z-index: 1000">Spin!</button>
+            <button id="spin" class="button is-large is-hidden" style="top: calc(250px - 1.5rem / 2); z-index: 1000">Spin!</button>
             <span id="wheel"></span>
           </div>
         </article>
